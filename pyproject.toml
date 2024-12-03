@@ -1,0 +1,28 @@
+[project]
+name = "data-pipeline-tools"
+version = "1.0"
+description = "A collection of tools for data pipelines"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp>=3.11.9",
+    "google-api-python-client>=2.154.0",
+    "google-cloud-bigquery>=3.27.0",
+    "google-cloud-core>=2.4.1",
+    "google-cloud-secret-manager>=2.21.1",
+    "holidays>=0.61",
+    "pandas-gbq>=0.24.0",
+    "pyforecast",
+]
+
+[tool.uv.sources]
+pyforecast = { git = "https://github.com/tpximpact/py_forecast" } 
+
+[tool.setuptools.packages.find]
+include = ["asyncs*", "auth*", "forecast_tools*", "util*", "holidays*", "drive*"]
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["DTZ005", "TRY300"]
+line-length = 150
+show-fixes = true
+target-version = "py311"
