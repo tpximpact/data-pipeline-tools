@@ -17,8 +17,9 @@ dependencies = [
 [tool.uv.sources]
 pyforecast = { git = "https://github.com/tpximpact/py_forecast" } 
 
-[tool.setuptools.packages.find]
-include = ["asyncs*", "auth*", "forecast_tools*", "util*", "holidays*", "drive*"]
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = { find = {} }
 
 [tool.ruff]
 select = ["ALL"]
