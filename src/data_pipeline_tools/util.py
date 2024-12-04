@@ -122,18 +122,3 @@ def get_harvest_pages(url: str, headers: dict) -> tuple[int, int]:
     except (requests.exceptions.RequestException, KeyError) as e:
         print(f"Error retrieving total pages: {e}")
         return None, None
-
-
-def unwrap_forecast_response(response: list) -> list[dict]:
-    """Unwrap a forecast response to a json list.
-
-    Args:
-    ----
-        response (list): The response to unwrap.
-
-    Returns:
-    -------
-        list[dict]: A list of json objects.
-
-    """
-    return [item._json_data for item in response]  # noqa: SLF001
