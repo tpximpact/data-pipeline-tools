@@ -19,7 +19,9 @@ pyforecast = { git = "https://github.com/tpximpact/py_forecast" }
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-packages = { find = {} }
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.ruff]
 select = ["ALL"]
