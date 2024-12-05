@@ -93,10 +93,9 @@ def flatten_columns(df: pd.DataFrame, nested_columns: list) -> pd.DataFrame:
         flattened_df = pd.json_normalize(df[column], max_level=1).add_prefix(f"{column}_")
 
         # Add the flattened columns to the DataFrame and drop the original nested column.
-        flat_df = pd.concat([df, flattened_df], axis=1)
-        flat_df = flat_df.drop(column, axis=1)
+        df = pd.concat([df, flattened_df], axis=1).drop(column, axis=1)  # noqa: PD901
 
-    return flat_df
+    return df
 
 
 def get_harvest_pages(url: str, headers: dict) -> tuple[int, int]:
